@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '~>3.0.2'
-gem 'cucumber', '~> 3.1', '>= 3.1.2'
+gem 'cucumber'
 gem 'capybara'
 gem 'selenium-webdriver'
 gem 'rspec'
