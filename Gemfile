@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+ruby '~>2.5.0'
+gem 'cucumber', '~> 3.1', '>= 3.1.2'
+gem 'capybara'
+gem 'selenium-webdriver'
+gem 'rspec'
+gem 'browserstack-automate'
