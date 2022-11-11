@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '~>2.5.0'
+ruby '~>3.0.2'
 gem 'cucumber', '~> 3.1', '>= 3.1.2'
 gem 'capybara'
 gem 'selenium-webdriver'
