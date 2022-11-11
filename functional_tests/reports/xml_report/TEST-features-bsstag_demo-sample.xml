@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite failures="0" errors="0" skipped="0" tests="2" time="15.509061" name="Test Cases for bstackdemo website">
+<testcase classname="Test Cases for bstackdemo website" name="Can add the product in cart1" time="12.846783">
+  <system-out>
+    <![CDATA[]]>
+  </system-out>
+  <system-err>
+    <![CDATA[]]>
+  </system-err>
+</testcase>
+<testcase classname="Test Cases for bstackdemo website" name="Can add the product in cart2" time="2.662278">
+  <system-out>
+    <![CDATA[]]>
+  </system-out>
+  <system-err>
+    <![CDATA[]]>
+  </system-err>
+</testcase>
+</testsuite>

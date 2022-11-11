@@ -1,0 +1,41 @@
+require 'rubygems'
+require 'json'
+require 'parallel'
+require 'yaml'
+require 'allure-cucumber'
+require 'cucumber'
+require 'cucumber/rake/task'
+
+def capability(browser)
+  case browser
+  when 'win10_chrome'
+    ENV['BS_AUTOMATE_OS'] = 'Windows'
+    ENV['BS_AUTOMATE_OS_VERSION'] = 10
+    ENV['SELENIUM_BROWSER'] = 'Chrome'
+  when 'win11_firefox'
+    ENV['BS_AUTOMATE_OS'] = 'Windows'
+    ENV['BS_AUTOMATE_OS_VERSION'] = 11
+    ENV['SELENIUM_BROWSER'] = 'Firefox'
+  end
+end
+
+def cukes(tags)
+  Cucumber::Rake::Task.new :task do |t|
+    t.cucumber_opts = tags.eql?('all') ? "-r features/*/*.feature" : "-r features/*/*.feature --t @#{tags}"
+  end
+  Rake::Task[:task].execute
+end
+
+task :all_tasks, :browser, :priority do |_, args|
+  priority = args[:priority].downcase
+  browser = args[:browser].downcase
+  task = "browser:#{browser.to_sym} tag:#{priority.to_sym}"
+  begin
+    puts "***********#{task}************"
+    CONFIG ||= YAML.load(File.read("#{File.dirname(__FILE__)}/cucumber.yml"))['constants']
+    capability(browser)
+    cukes(priority)
+  rescue Exception => e
+    puts "Exception in running the task - #{e.backtrace.inspect}"
+  end
+end

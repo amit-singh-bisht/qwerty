@@ -1,0 +1,3 @@
+default: --profile xml_report
+html_report: --format pretty --format html --out reports/html_report/1.html
+xml_report: --format pretty --format junit --out reports/xml_report
